@@ -2,8 +2,11 @@
 
 const dateNow = document.querySelector('.date');
 const dayNow = document.querySelector('.day');
-const newTodo = document.querySelector('.add-todo');
-const deleteItem = document.querySelector('.delete');
+const todoInput = document.querySelector('.todo-input');
+const todoButton = document.querySelector('.todo-button');
+const todoList = document.querySelector('.todos');
+const deleteBtn = document.querySelector('.delete');
+const checkBtn = document.querySelector('.check');
 
 const months = [
   'JAN',
@@ -38,4 +41,30 @@ dateNow.innerHTML = ` ${now.getDate().toString().padStart(2, '0')} ${
 
 dayNow.innerHTML = `${days[now.getDay()]}`;
 
-// newTodo.addEventListener('click', addTodo);
+const addTodo = function (e) {
+  e.preventDefault();
+
+  const html = `<div class="todo"> 
+  <input type="checkbox" class="check" />${todoInput.value}
+   <span class="delete">&times;</span>
+ </div>
+  `;
+  todoList.insertAdjacentHTML('afterbegin', html);
+  todoInput.value = '';
+
+  document
+    .querySelector('.delete')
+    .addEventListener(
+      'click',
+      e => (e.target.parentElement.style.display = 'none')
+    );
+
+  document.querySelector('.check').addEventListener('click', e => {
+    if (e.target.checked === 'true') {
+      e.target.checked = 'false';
+      e.target.parentElement.classList.remove('checked');
+      console.log(e.target.parentElement);
+    } else e.target.parentElement.classList.add('checked');
+  });
+};
+todoButton.addEventListener('click', addTodo);
