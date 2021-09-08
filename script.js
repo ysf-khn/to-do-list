@@ -60,11 +60,9 @@ const addTodo = function (e) {
     );
 
   document.querySelector('.check').addEventListener('click', e => {
-    if (e.target.checked === 'true') {
-      e.target.checked = 'false';
-      e.target.parentElement.classList.remove('checked');
-      console.log(e.target.parentElement);
-    } else e.target.parentElement.classList.add('checked');
+    e.target.checked
+      ? e.target.parentElement.classList.add('checked')
+      : e.target.parentElement.classList.remove('checked');
   });
 };
 todoButton.addEventListener('click', addTodo);
