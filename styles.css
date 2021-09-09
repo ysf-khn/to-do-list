@@ -80,6 +80,10 @@ input {
   margin-right: 2em;
 }
 
+.check {
+  accent-color: lightgreen;
+}
+
 .todo-input:focus {
   outline: none;
 }
