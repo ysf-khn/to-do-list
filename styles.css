@@ -12,13 +12,13 @@ body {
 
   height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
 .container {
   max-height: 80vh;
   width: 70vw;
+  margin-top: 3em;
   background-color: white;
   overflow: auto;
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
@@ -37,6 +37,13 @@ h3 {
   display: flex;
   justify-content: space-between;
   padding: 0 2em 1em 2em;
+}
+
+.fas {
+  float: right;
+  margin-right: 1em;
+  margin-left: -1em;
+  cursor: pointer;
 }
 
 form {
@@ -60,6 +67,7 @@ form {
 
 .todo:hover {
   background-color: lightgreen;
+  color: black;
 }
 
 .todo-input {
@@ -108,4 +116,19 @@ span {
 
 .delete:hover {
   transform: scale(1.5);
+}
+
+.dark-body {
+  background-color: #121212;
+  color: #f3f3f3;
+}
+
+.dark-container {
+  background-color: #1d1d1d;
+  box-shadow: none;
+}
+
+.todo-input-dark {
+  background-color: #242424;
+  color: #f3f3f3;
 }
